@@ -85,6 +85,7 @@ async function fetchUserWeatherInfo(coordinates) {
 }
 
 function renderWeatherInfo(weatherInfo) {
+    // console.log(weatherInfo)
     //fistly, we have to fetch the elements 
     const cityName = document.querySelector("[data-cityName]");
     const countryIcon = document.querySelector("[data-countryIcon]");
@@ -95,7 +96,7 @@ function renderWeatherInfo(weatherInfo) {
     const humidity = document.querySelector("[data-humidity]");
     const cloudiness = document.querySelector("[data-cloudiness]");
 
-    console.log(weatherInfo);
+    // console.log(weatherInfo);
 
     //fetch values from weatherINfo object and put it UI elements
     cityName.innerText = weatherInfo?.name;
@@ -161,7 +162,8 @@ async function fetchSearchWeatherInfo(city) {
             renderWeatherInfo(data);
         }
         else{
-            console.log("Error")
+            data.name="City Not Found";
+            renderWeatherInfo(data);
         }
     }
     catch(err) {
